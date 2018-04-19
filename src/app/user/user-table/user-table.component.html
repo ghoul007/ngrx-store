@@ -5,16 +5,18 @@
       <th>Name</th>
       <th>username</th>
       <th>email</th>
-      </tr>
-    </thead>
-      <tbody>
-        <tr *ngFor="let user  of users">
-          <th>{{user.id}}</th>
-          <th>{{user.name}}</th>
-          <th>{{user.username}}</th>
-          <th>{{user.email}}</th>
-        </tr>
-      </tbody>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user  of users">
+      <th>{{user.id}}</th>
+      <th>{{user.name}}</th>
+      <th>{{user.username}}</th>
+      <th>{{user.email}}</th>
+      <th>
+        <button class="danger btn btn-danger" (click)=deleteUser(user.id)>delete</button>
+      </th>
+    </tr>
+  </tbody>
 </table>
-
- 

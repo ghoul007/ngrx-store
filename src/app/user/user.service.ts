@@ -10,4 +10,8 @@ export class UserService {
   getUsers() {
     return this.Http.get('https://jsonplaceholder.typicode.com/users');
   }
+
+  deleteUsers(id) {
+    return this.Http.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+  }
 }
