@@ -33,9 +33,9 @@ export class UserListComponent implements OnInit {
 
 
   deleteUser(id) {
-    this.userService.deleteUsers(id).subscribe(res => {
-      this.users$ = this.userService.getUsers().pipe(map(r => Object(r).filter(f => f['id'] !== id)));
-      console.log(this.users$.subscribe(console.log));
-    });
+  //   this.userService.deleteUsers(id).subscribe(res => {
+  //     this.users$ = this.userService.getUsers().pipe(map(r => Object(r).filter(f => f['id'] !== id)));
+  //     console.log(this.users$.subscribe(console.log));
+  //   });
   }
 }

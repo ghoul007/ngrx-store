@@ -10,7 +10,7 @@ export class LoadUserAction {
 
 export class LoadUserSuccessAction {
     readonly type = LOAD_USER_SUCCESS;
-    constructor(public payload: any[]) {
+    constructor(public payload: any ) {
 
     }
 }

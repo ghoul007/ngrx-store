@@ -9,9 +9,10 @@ import { UserTableComponent } from './user/user-table/user-table.component';
 import { UserService } from './user/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from "@ngrx/store"
+import { EffectsModule } from "@ngrx/effects"
 import { userReducer } from './reducers/user.reducer';
-
-
+import { userEffects } from './effects/user.effects'
+import { StoreDevtoolsModule} from '@ngrx/store-devtools'
 const routes: Routes = [{
   path: "", component: UserListComponent
 }]
@@ -27,7 +28,9 @@ const routes: Routes = [{
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot({ usrs: userReducer })
+    StoreModule.forRoot({ users: userReducer }),
+    EffectsModule.forRoot([userEffects]),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
