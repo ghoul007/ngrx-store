@@ -12,6 +12,8 @@ export class UserService {
   }
 
   deleteUsers(id) {
-    return this.Http.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+    let res = this.Http.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+    debugger;
+    return res;
   }
 }

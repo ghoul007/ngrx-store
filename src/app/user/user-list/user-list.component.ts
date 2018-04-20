@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '../user.service';
 import { Observable } from 'rxjs/Observable';
 import { map } from "rxjs/operators/map";
@@ -8,7 +8,8 @@ import * as userActions from '../../actions/user.action';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent implements OnInit {
 
@@ -33,9 +34,10 @@ export class UserListComponent implements OnInit {
 
 
   deleteUser(id) {
-  //   this.userService.deleteUsers(id).subscribe(res => {
-  //     this.users$ = this.userService.getUsers().pipe(map(r => Object(r).filter(f => f['id'] !== id)));
-  //     console.log(this.users$.subscribe(console.log));
-  //   });
+    this.store.dispatch(new userActions.DeleteUserAction(id))
+    //   this.userService.deleteUsers(id).subscribe(res => {
+    //     this.users$ = this.userService.getUsers().pipe(map(r => Object(r).filter(f => f['id'] !== id)));
+    //     console.log(this.users$.subscribe(console.log));
+    //   });
   }
 }
